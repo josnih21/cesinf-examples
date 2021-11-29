@@ -17,21 +17,14 @@ class MyApp extends StatelessWidget {
       ),
       themeMode: ThemeMode.dark,
       darkTheme: ThemeData(brightness: Brightness.dark),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({Key? key}) : super(key: key);
 
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,11 +37,12 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Text(
               'Hey there CESINF',
               textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 30),
             ),
           ),
           color: Colors.blue,
-          height: 100,
-          width: 100,
+          height: 300,
+          width: 300,
         ),
       ),
     );
