@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -32,25 +34,42 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool isDefaultSize = true;
+  Color randomColor = Colors.cyan;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Centered container example'),
-      ),
-      body: Center(
-        child: Container(
-          child: const Center(
-            child: Text(
-              'Hey there CESINF',
-              textAlign: TextAlign.center,
-            ),
-          ),
-          color: Colors.blue,
-          height: 100,
-          width: 100,
+        appBar: AppBar(
+          title: const Text('Centered container example'),
         ),
-      ),
-    );
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+              child: GestureDetector(
+                child: AnimatedContainer(
+                  duration: const Duration(seconds: 1),
+                  curve: Curves.easeInCirc,
+                  height: isDefaultSize ? 100 : 200,
+                  width: isDefaultSize ? 100 : 200,
+                  color: randomColor,
+                  child: const Center(
+                    child: Text(
+                      'Hey there CESINF',
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+                onTap: () => {
+                  setState(() {
+                    isDefaultSize = !isDefaultSize;
+                    randomColor = Colors.primaries[Random().nextInt(Colors.primaries.length)];
+                  })
+                },
+              ),
+            ),
+          ],
+        ));
   }
 }
