@@ -51,13 +51,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: AnimatedContainer(
                   duration: const Duration(seconds: 1),
                   curve: Curves.easeInCirc,
-                  height: isDefaultSize ? 100 : 200,
-                  width: isDefaultSize ? 100 : 200,
+                  height: isDefaultSize ? 400 : 600,
+                  width: isDefaultSize ? 400 : 600,
                   color: randomColor,
                   child: const Center(
                     child: Text(
                       'Hey there CESINF',
                       textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 50),
                     ),
                   ),
                 ),
