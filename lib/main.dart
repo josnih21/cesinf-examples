@@ -38,35 +38,29 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
           title: const Text('Centered container example'),
         ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Center(
-              child: GestureDetector(
-                child: AnimatedContainer(
-                  duration: const Duration(seconds: 1),
-                  curve: Curves.easeInCirc,
-                  height: isDefaultSize ? 400 : 600,
-                  width: isDefaultSize ? 400 : 600,
-                  color: randomColor,
-                  child: const Center(
-                    child: Text(
-                      'Hey there CESINF',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 50),
-                    ),
-                  ),
+        body: Center(
+          child: GestureDetector(
+            child: AnimatedContainer(
+              duration: const Duration(seconds: 1),
+              curve: Curves.easeInCirc,
+              height: isDefaultSize ? 400 : 600,
+              width: isDefaultSize ? 400 : 600,
+              color: randomColor,
+              child: const Center(
+                child: Text(
+                  'Hey there CESINF',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 50),
                 ),
-                onTap: () => {
-                  setState(() {
-                    isDefaultSize = !isDefaultSize;
-                    randomColor = Colors.primaries[Random().nextInt(Colors.primaries.length)];
-                  })
-                },
               ),
             ),
-          ],
+            onTap: () => {
+              setState(() {
+                isDefaultSize = !isDefaultSize;
+                randomColor = Colors.primaries[Random().nextInt(Colors.primaries.length)];
+              })
+            },
+          ),
         ));
   }
 }
